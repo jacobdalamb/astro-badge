@@ -1,15 +1,16 @@
 ---
-import CTA from '../../components/CTA.astro';
-import Frame from '../../components/Frame.astro';
-import Layout from '../../layouts/Layout.astro';
-import { contributors } from '../../util/getContributors';
-import src from './_og.jpg?url';
+import CTA from "../../components/CTA.astro";
+import Frame from "../../components/Frame.astro";
+import Layout from "../../layouts/Layout.astro";
+import { contributors } from "../../util/getContributors";
+import src from "./_og.jpg?url";
 
 const sortedUsernames = contributors.map((c) => c.username);
 
-const title = 'Astro Contributors';
-const description = 'Find an Astro contributor and check out their awesome work!';
-const dataID = 'contributor-usernames';
+const title = "Astro Contributors";
+const description =
+	"Find an Astro contributor and check out their awesome work!";
+const dataID = "contributor-usernames";
 ---
 
 <Layout

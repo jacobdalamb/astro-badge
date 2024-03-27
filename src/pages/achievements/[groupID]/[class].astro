@@ -1,23 +1,23 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import { globalAchievements } from '../../../util/getGlobalStats';
+import Layout from "../../../layouts/Layout.astro";
+import { globalAchievements } from "../../../util/getGlobalStats";
 import {
-  achievementClassEmoji,
-  achievementClassGradient,
-  achievementClassGradientText,
-  achievementClassSlug,
-} from '../../../util/achievementClasses';
-import { resizedGitHubAvatarURL } from '../../../util/resizedGitHubAvatarURL';
-import src from '../_og.jpg?url';
+	achievementClassEmoji,
+	achievementClassGradient,
+	achievementClassGradientText,
+	achievementClassSlug,
+} from "../../../util/achievementClasses";
+import { resizedGitHubAvatarURL } from "../../../util/resizedGitHubAvatarURL";
+import src from "../_og.jpg?url";
 
 export function getStaticPaths() {
-  return globalAchievements.map((achievement) => ({
-    params: {
-      groupID: achievement.groupID,
-      class: achievementClassSlug(achievement.class),
-    },
-    props: achievement,
-  }));
+	return globalAchievements.map((achievement) => ({
+		params: {
+			groupID: achievement.groupID,
+			class: achievementClassSlug(achievement.class),
+		},
+		props: achievement,
+	}));
 }
 
 type Props = (typeof globalAchievements)[number];

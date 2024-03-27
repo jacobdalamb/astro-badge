@@ -3,18 +3,18 @@ import { Code } from "astro/components";
 import Copy from "./Copy.astro";
 
 export interface Badge {
-  label: 'Tiny' | 'Small' | 'Medium' | 'Large';
-  shortLabel: 'XS' | 'S' | 'M' | 'L';
-  slug: 'tiny' | 'small' | 'medium' | 'large';
-  width: number;
-  height: number;
+	label: "Tiny" | "Small" | "Medium" | "Large";
+	shortLabel: "XS" | "S" | "M" | "L";
+	slug: "tiny" | "small" | "medium" | "large";
+	width: number;
+	height: number;
 }
 
 interface Props {
-  aspectRatio: number;
-  alt: string;
-  link: string;
-  getImagePath: (badge: Badge) => string;
+	aspectRatio: number;
+	alt: string;
+	link: string;
+	getImagePath: (badge: Badge) => string;
 }
 
 const { aspectRatio, alt, link, getImagePath } = Astro.props as Props;
@@ -23,18 +23,23 @@ const heights = { tiny: 20, small: 32, medium: 40, large: 48 } as const;
 const heightsKeys = Object.keys(heights) as Array<keyof typeof heights>;
 
 const badgeSizes: Badge[] = heightsKeys.map((slug) => ({
-  slug,
-  label: (slug[0]!.toUpperCase() + slug.slice(1)) as Badge['label'],
-  shortLabel: (slug === 'tiny' ? 'XS' : slug[0]!.toUpperCase()) as Badge['shortLabel'],
-  width: heights[slug] * aspectRatio,
-  height: heights[slug],
+	slug,
+	label: (slug[0]!.toUpperCase() + slug.slice(1)) as Badge["label"],
+	shortLabel: (slug === "tiny"
+		? "XS"
+		: slug[0]!.toUpperCase()) as Badge["shortLabel"],
+	width: heights[slug] * aspectRatio,
+	height: heights[slug],
 }));
 
 const mdSnippet = (badge: Badge) =>
-  `[![${alt}](${Astro.site}${getImagePath(badge)})](${link})`;
-const htmlSnippet = (badge: Badge) => `<a href="${link}">`
-  +`<img src="${Astro.site}${getImagePath(badge)}" alt="${alt}" width="${badge.width}" height="${badge.height}">`
-  +`</a>`;
+	`[![${alt}](${Astro.site}${getImagePath(badge)})](${link})`;
+const htmlSnippet = (badge: Badge) =>
+	`<a href="${link}">` +
+	`<img src="${Astro.site}${getImagePath(badge)}" alt="${alt}" width="${
+		badge.width
+	}" height="${badge.height}">` +
+	`</a>`;
 ---
 
 <starlight-tabs class="contents">

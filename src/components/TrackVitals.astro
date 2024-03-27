@@ -7,8 +7,8 @@
  * element this component also injects.
  */
 const path = Object.entries(Astro.params).reduce(
-  (acc, [key, value]) => acc.replace(value as string, `[${key}]`),
-  Astro.url.pathname
+	(acc, [key, value]) => acc.replace(value as string, `[${key}]`),
+	Astro.url.pathname,
 );
 ---
 

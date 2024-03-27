@@ -1,33 +1,33 @@
 ---
-import '@astrojs/site-kit/tailwind.css';
-import '@fontsource-variable/inter';
-import '../styles/fonts.css';
-import Footer from '../components/Footer.astro';
-import Preloads from '../components/Preloads.astro';
-import TrackVitals from '../components/TrackVitals.astro';
+import "@astrojs/site-kit/tailwind.css";
+import "@fontsource-variable/inter";
+import "../styles/fonts.css";
+import Footer from "../components/Footer.astro";
+import Preloads from "../components/Preloads.astro";
+import TrackVitals from "../components/TrackVitals.astro";
 export interface Props {
-  title?: string;
-  description?: string;
-  ogImg?: {
-    src: string;
-    alt: string;
-  };
-  wide?: boolean;
+	title?: string;
+	description?: string;
+	ogImg?: {
+		src: string;
+		alt: string;
+	};
+	wide?: boolean;
 }
 const {
-  title = 'Astro Badges',
-  description = 'Badges to show off your Astro pride',
-  ogImg = {
-    src: '/ogimg.jpg',
-    alt: 'The text “Astro Badges” over a soft green-gray gradient.',
-  },
+	title = "Astro Badges",
+	description = "Badges to show off your Astro pride",
+	ogImg = {
+		src: "/ogimg.jpg",
+		alt: "The text “Astro Badges” over a soft green-gray gradient.",
+	},
 } = Astro.props;
 const ogImgURL = new URL(ogImg.src, Astro.site).href;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 
 const navItems = [
-  { text: 'Contributors', href: '/contributors/' },
-  { text: 'Badges', href: '/badges/' },
+	{ text: "Contributors", href: "/contributors/" },
+	{ text: "Badges", href: "/badges/" },
 ];
 ---
 

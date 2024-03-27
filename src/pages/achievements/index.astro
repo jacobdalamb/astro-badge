@@ -1,16 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { globalAchievements } from '../../util/getGlobalStats';
+import Layout from "../../layouts/Layout.astro";
+import { globalAchievements } from "../../util/getGlobalStats";
 import {
-  achievementClassLabel,
-  achievementClassSlug,
-  achievementClassGradient,
-  achievementClassGradientText,
-} from '../../util/achievementClasses';
-import src from './_og.jpg?url';
+	achievementClassLabel,
+	achievementClassSlug,
+	achievementClassGradient,
+	achievementClassGradientText,
+} from "../../util/achievementClasses";
+import src from "./_og.jpg?url";
 
 /** Achievements sorted alphabetically by their title. */
-const achievements = globalAchievements.sort((a, b) => (a.title > b.title ? 1 : -1));
+const achievements = globalAchievements.sort((a, b) =>
+	a.title > b.title ? 1 : -1,
+);
 ---
 
 <Layout
